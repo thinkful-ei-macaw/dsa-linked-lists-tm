@@ -219,6 +219,20 @@ function thirdFromEnd(SLL) {
 
 }
 
+function findMiddle(SLL) {
+  let targetPosition = Math.ceil(size(SLL)/2);
+  console.log(targetPosition)
+  let targetCounter = 0;
+  let currNode = SLL.head;
+  while (currNode !== null) {
+    targetCounter++;
+    if (targetCounter === targetPosition) {
+      return currNode
+    } 
+    currNode = currNode.next
+  }
+}
+
 module.exports =  {
   LinkedList,
   display,
@@ -227,5 +241,6 @@ module.exports =  {
   findPrevious,
   findLast,
   reverseList,
-  thirdFromEnd
+  thirdFromEnd,
+  findMiddle
 };

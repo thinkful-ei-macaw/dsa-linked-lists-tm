@@ -1,12 +1,12 @@
 const {
   LinkedList, display, size,
   isEmpty, findPrevious, findLast,
-  reverseList, thirdFromEnd } = require('./LinkedList');
+  reverseList, thirdFromEnd, findMiddle } = require('./LinkedList');
 
 function main() {
   const SLL = new LinkedList();
 
-  SLL.insertFirst('Apollo');
+  //SLL.insertFirst('Apollo');
   SLL.insertFirst('Boomer');
   SLL.insertFirst('Helo');
   SLL.insertFirst('Husker');
@@ -31,7 +31,8 @@ function main() {
   // console.log(findLast(SLL).value);
   // reverseList(SLL);
   display(SLL);
-  console.log(thirdFromEnd(SLL));
+  //console.log(thirdFromEnd(SLL));
+  console.log(findMiddle(SLL))
 
 }
 
