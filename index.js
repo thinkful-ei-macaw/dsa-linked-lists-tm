@@ -1,15 +1,18 @@
-const DLL = require('./DLL');
+const { DoublyLinkedList, reverseDLL } = require('./DLL');
+const { display } = require('./LinkedList');
 
 function main(){
 
-  let list = new DLL(['Aquaria', 'Caprica', 'Gemenon']);
+  let list = new DoublyLinkedList(['Aquaria', 'Caprica', 'Gemenon']);
   list.insertAfter('Gemenon', 'Sagittaron');
   list.insertBefore('Sagittaron', 'Picon');
 
   list.insertLast('Tauron');
   list.remove('Picon');
 
-  console.log(list.find('Aquaria'));
+  display(list);
+  reverseDLL(list);
+  display(list);
 
 }
 

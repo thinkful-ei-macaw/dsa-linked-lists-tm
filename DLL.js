@@ -70,4 +70,20 @@ class DoublyLinkedList {
 
 }
 
-module.exports = DoublyLinkedList;
+function reverseDLL(LL) {
+  let currNode = LL.head;
+
+  while (currNode !== null) {
+    let nextNode = currNode.next;
+    
+    [currNode.next, currNode.prev] = [currNode.prev, currNode.next];
+    
+    LL.head = currNode;
+    currNode = nextNode;
+  }
+}
+
+module.exports = {
+  DoublyLinkedList,
+  reverseDLL
+};
