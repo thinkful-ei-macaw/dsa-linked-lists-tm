@@ -196,21 +196,14 @@ function thirdFromEnd(SLL) {
   // exit if no items in list
   if (SLL.head === null) return;
 
-  // counter to index items in list
-  let initialCounter = 1;
-  let currNode = SLL.head;
-  while (currNode !== null) {
-    initialCounter++;
-    currNode = currNode.next;
-  }
-
   // need at least 3 items to work
-  if (initialCounter < 3) return;
+  let listSize = size(SLL);
+  if (listSize < 3) return;
 
-  // set target position and reset current node
-  let targetPosition = initialCounter - 3;
+  // set target position and loop through nodes
+  let targetPosition = listSize - 2; // (third from last)
   let targetCounter = 1;
-  currNode = SLL.head;
+  let currNode = SLL.head;
   while (currNode !== null) {
     if (targetCounter === targetPosition) return currNode;
     targetCounter++;
