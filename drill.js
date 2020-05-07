@@ -1,7 +1,7 @@
-const LinkedList = require('./LinkedList')
+const { LinkedList, display, size, isEmpty, findPrevious, findLast } = require('./LinkedList');
 
 function main() {
-  const SLL = new LinkedList
+  const SLL = new LinkedList();
 
   SLL.insertFirst('Apollo');
   SLL.insertFirst('Boomer');
@@ -10,14 +10,23 @@ function main() {
   SLL.insertFirst('Starbuck');
   SLL.insertFirst('Tahuida');
 
-  //SLL.remove('squirrel')
+  // SLL.remove('squirrel');
 
-  SLL.insertBefore('Starbuck', 'Athena')
-  SLL.insertAfter('Tahuida', 'Hotdog')
+  SLL.insertBefore('Starbuck', 'Athena');
+  SLL.insertAfter('Tahuida', 'Hotdog');
 
-  SLL.insertAt(1, 'Kat')
+  SLL.insertAt(2, 'Kat');
+  
+  display(SLL);
+  console.log(size(SLL));
+  console.log(isEmpty(SLL));
 
-  console.log(SLL)
+  // const emptySLL = new LinkedList();
+  // console.log(isEmpty(emptySLL));
+
+  console.log(findPrevious(SLL, 'Kat').value);
+  console.log(findLast(SLL).value);
+
 }
 
 main();

@@ -11,7 +11,7 @@ class LinkedList {
   }
 
   insertFirst(item) {
-    this.head = new _Node(item, this.head)
+    this.head = new _Node(item, this.head);
   }
 
   insertLast(item) {
@@ -39,31 +39,31 @@ class LinkedList {
       console.log('Item not found');
       return;
     }
-    previousNode.next = new _Node(newItem, currNode )
+    previousNode.next = new _Node(newItem, currNode );
   }
 
   insertAfter(item, newItem) {
-    let currNode = this.find(item)
+    let currNode = this.find(item);
     if (currNode === null) {
       console.log('Item not found');
       return;
     } 
-    currNode.next = new _Node(newItem, currNode.next)
+    currNode.next = new _Node(newItem, currNode.next);
   }
 
   insertAt(position, newItem) {
-    let currNode = this.head
-    let currPosition = 1
+    let currNode = this.head;
+    let currPosition = 1;
     let previousNode = this.head;
 
     if (!this.head) {
-      console.log(`Cannot insert at ${position}`)
+      console.log(`Cannot insert at ${position}`);
       return null;
     }
 
     while (currPosition !== position) {
       if (currNode.next === null) {
-        console.log(`Cannot insert at ${position}`)
+        console.log(`Cannot insert at ${position}`);
         return null;
       }
       else {
@@ -81,7 +81,7 @@ class LinkedList {
   }
 
   find(item) {
-    let currNode = this.head
+    let currNode = this.head;
 
     if (!this.head) {
       return null;
@@ -119,8 +119,67 @@ class LinkedList {
       console.log('Item not found');
       return;
     }
-    previousNode.next = currNode.next
+    previousNode.next = currNode.next;
   }
 }
 
-module.exports = LinkedList
+function display(SLL) {
+  let currNode = SLL.head;
+
+  while (currNode !== null) {
+    console.log(currNode.value);
+    currNode = currNode.next;
+  }
+}
+
+function size(SLL) {
+  let counter = 0;
+  let currNode = SLL.head;
+
+  while (currNode !== null) {
+    counter++;
+    currNode = currNode.next;
+  }
+
+  return counter;
+}
+
+function isEmpty(SLL) {
+  return SLL.head === null;
+}
+
+function findPrevious(SLL, item) {
+  let currNode = SLL.head;
+  let prevNode = SLL.head;
+
+  while (currNode.next !== null && currNode.value !== item) {
+    prevNode = currNode;
+    currNode = currNode.next;
+  }
+
+  if (currNode.value !== item) {
+    console.log('Item not found');
+    return;
+  } else {
+    return prevNode;
+  }
+}
+
+function findLast(SLL) {
+  let currNode = SLL.head;
+
+  while (currNode.next !== null) {
+    currNode = currNode.next;
+  }
+
+  return currNode;
+}
+
+module.exports =  {
+  LinkedList,
+  display,
+  size,
+  isEmpty,
+  findPrevious,
+  findLast
+};
