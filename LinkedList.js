@@ -175,11 +175,29 @@ function findLast(SLL) {
   return currNode;
 }
 
+function reverseList(SLL) {
+  let currNode = SLL.head
+  let prevNode = SLL.head
+  while (currNode !== null) {
+    console.log(currNode.value)
+    let nextNode = currNode.next
+    if (currNode === SLL.head) {
+      currNode.next = null    
+    } else {
+      currNode.next = prevNode
+    }
+    SLL.head = currNode
+    prevNode = currNode
+    currNode = nextNode
+  } 
+}
+
 module.exports =  {
   LinkedList,
   display,
   size,
   isEmpty,
   findPrevious,
-  findLast
+  findLast,
+  reverseList
 };
