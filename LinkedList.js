@@ -176,20 +176,47 @@ function findLast(SLL) {
 }
 
 function reverseList(SLL) {
-  let currNode = SLL.head
-  let prevNode = SLL.head
+  let currNode = SLL.head;
+  let prevNode = SLL.head;
   while (currNode !== null) {
-    console.log(currNode.value)
-    let nextNode = currNode.next
+    console.log(currNode.value);
+    let nextNode = currNode.next;
     if (currNode === SLL.head) {
-      currNode.next = null    
+      currNode.next = null;    
     } else {
-      currNode.next = prevNode
+      currNode.next = prevNode;
     }
-    SLL.head = currNode
-    prevNode = currNode
-    currNode = nextNode
+    SLL.head = currNode;
+    prevNode = currNode;
+    currNode = nextNode;
   } 
+}
+
+function thirdFromEnd(SLL) {
+  // exit if no items in list
+  if (SLL.head === null) return;
+
+  // counter to index items in list
+  let initialCounter = 1;
+  let currNode = SLL.head;
+  while (currNode !== null) {
+    initialCounter++;
+    currNode = currNode.next;
+  }
+
+  // need at least 3 items to work
+  if (initialCounter < 3) return;
+
+  // set target position and reset current node
+  let targetPosition = initialCounter - 3;
+  let targetCounter = 1;
+  currNode = SLL.head;
+  while (currNode !== null) {
+    if (targetCounter === targetPosition) return currNode;
+    targetCounter++;
+    currNode = currNode.next;
+  }
+
 }
 
 module.exports =  {
@@ -199,5 +226,6 @@ module.exports =  {
   isEmpty,
   findPrevious,
   findLast,
-  reverseList
+  reverseList,
+  thirdFromEnd
 };
