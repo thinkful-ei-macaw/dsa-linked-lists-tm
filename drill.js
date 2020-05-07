@@ -1,7 +1,7 @@
 const {
   LinkedList, display, size,
   isEmpty, findPrevious, findLast,
-  reverseList, thirdFromEnd, findMiddle } = require('./LinkedList');
+  reverseList, thirdFromEnd, findMiddle, doesItCycle } = require('./LinkedList');
 
 function main() {
   const SLL = new LinkedList();
@@ -18,8 +18,9 @@ function main() {
   SLL.insertBefore('Starbuck', 'Athena');
   SLL.insertAfter('Tahuida', 'Hotdog');
 
-  SLL.insertAt(2, 'Kat');
+  SLL.insertAt(6, 'Kat');
   
+  SLL.find('Kat').next = SLL.find('Tahuida')
   // display(SLL);
   // console.log(size(SLL));
   // console.log(isEmpty(SLL));
@@ -30,9 +31,10 @@ function main() {
   // console.log(findPrevious(SLL, 'Kat').value);
   // console.log(findLast(SLL).value);
   // reverseList(SLL);
-  display(SLL);
+  //display(SLL);
   //console.log(thirdFromEnd(SLL));
-  console.log(findMiddle(SLL))
+  //console.log(findMiddle(SLL))
+  console.log(doesItCycle(SLL))
 
 }
 

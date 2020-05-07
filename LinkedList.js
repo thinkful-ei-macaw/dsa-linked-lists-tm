@@ -226,6 +226,26 @@ function findMiddle(SLL) {
   }
 }
 
+function doesItCycle(SLL) {
+  let currNode = SLL.head
+  let counter = 0
+  while (currNode !== null) {
+    let otherNode = SLL.head
+    let otherCounter = 0
+    while (otherCounter < counter) {
+      if (currNode.next === otherNode) {
+        return true;
+      }
+      otherNode = otherNode.next;
+      otherCounter++;
+    }
+    currNode = currNode.next;
+    counter++
+  }
+  return false
+}
+
+
 module.exports =  {
   LinkedList,
   display,
@@ -235,5 +255,6 @@ module.exports =  {
   findLast,
   reverseList,
   thirdFromEnd,
-  findMiddle
+  findMiddle,
+  doesItCycle
 };
